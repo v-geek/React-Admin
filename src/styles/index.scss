@@ -1,0 +1,12 @@
+@import './reset.scss';
+@import './common.scss';
+
+body {
+  font-size: 14px;
+  font-family: v-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+button:focus {
+  outline: none;
+}

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { SystemState } from '../types'
 
 const systemSlice = createSlice({
   name: 'system',
@@ -21,7 +22,7 @@ const systemSlice = createSlice({
     componentSize: 'default',
     grayMode: false,
     weakMode: false,
-  },
+  } as SystemState,
   reducers: {
     setSystemState(state, { payload }) {
       state[payload.key] = payload.value
