@@ -1,10 +1,4 @@
 .loading-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-
   .ant-spin {
     .ant-spin-dot-item {
       background-color: var(--hooks-colorPrimary);
@@ -12,7 +6,7 @@
   }
 }
 
-/* Loading Mask */
+// Loading Mask
 #loading {
   position: fixed;
   inset: 0;

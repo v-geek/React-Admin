@@ -5,7 +5,7 @@ import './index.scss'
 
 export const Loading = () => {
   return (
-    <div className="loading-box">
+    <div className="w-screen h-screen flex-c loading-box">
       <Spin size="large" />
     </div>
   )

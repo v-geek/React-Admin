@@ -5,7 +5,7 @@ import { HOME_URL, LOGIN_URL, ROUTER_WHITE_LIST } from '@/config'
 import { Meta } from '../types'
 
 const RouterGuard = ({ children }) => {
-  const loader = useLoaderData()
+  const meta = useLoaderData() as Meta
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
@@ -15,8 +15,6 @@ const RouterGuard = ({ children }) => {
   const menuList = useSelector((state: RootState) => state.permission.menuList)
 
   useEffect(() => {
-    const meta = loader as Meta
-
     if (meta) {
       const title = import.meta.env.VITE_TITLE
       document.title = meta?.title ? `${meta.title} - ${title}` : title
@@ -33,7 +31,7 @@ const RouterGuard = ({ children }) => {
     if (!token && !isLogin) {
       return navigate(LOGIN_URL, { replace: true })
     }
-  }, [loader]) // ????
+  }, [])
 
   return children
 }

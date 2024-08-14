@@ -28,14 +28,11 @@ const Router: FC = () => {
 
     const dynamicRouter = handleRouterFormat(menuList)
 
-    console.log('dynamicRouter', dynamicRouter)
-
     const allRouter = [...staticRouterGuard, ...dynamicRouter]
 
-    // allRouter.forEach((item) => item.path === '*' && (item.element = <NotFound />))
     allRouter.forEach((item) => item.path === '*' && (item.element = <div>404</div>))
 
-    console.log('allRouter', allRouter)
+    // console.log('allRouter', allRouter)
 
     setRouterList(allRouter)
   }, [menuList])
