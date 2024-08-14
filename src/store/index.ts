@@ -9,6 +9,7 @@ import storage from 'redux-persist/lib/storage'
 import { thunk } from 'redux-thunk'
 import permission from './modules/permission'
 import system from './modules/system'
+import user from './modules/user'
 
 const persistReducers = persistReducer(
   {
@@ -16,7 +17,7 @@ const persistReducers = persistReducer(
     storage: storage,
     blacklist: ['permission'],
   },
-  combineReducers({ permission, system })
+  combineReducers({ permission, system, user })
 )
 
 const middleWares: Middleware[] = [thunk]
