@@ -2,6 +2,6 @@
 import dRouter from '@/assets/json/dRouter.json'
 
 export const getMenuListApi = () => {
-  // return http.get<MenuList>('/menu/list')
+  // return http.get<RouteList>('/menu/list')
   return Promise.resolve(dRouter)
 }

@@ -1,11 +1,11 @@
 import { Navigate } from 'react-router-dom'
 import RouterGuard from '../utils/RouterGuard'
 import { HOME_URL, LOGIN_URL } from '@/config'
-import { IRoute } from '../types'
-import Login from '@/views/login'
-import { Loading } from '@/components/Loading'
+import { RouteList } from '../types'
+import Login from '@/views/user/login'
+import { Loading } from '@/components/Base/Loading'
 
-export const staticRouter: IRoute[] = [
+export const staticRouter: RouteList = [
   {
     path: '/',
     element: <Navigate to={HOME_URL} />,

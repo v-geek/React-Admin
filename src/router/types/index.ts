@@ -4,17 +4,19 @@ export interface Meta {
   key?: string
   icon?: string
   title?: string
-  // activeMenu?: string
-  // isLink?: string
+  activeMenu?: string
+  isLink?: string
   showInMenu?: boolean
   isFull?: boolean
   // isAffix?: boolean
   keepAlive?: boolean
 }
 
-export type IRoute = Omit<RouteObject, 'children' | 'component'> & {
+export type Route = Omit<RouteObject, 'children' | 'component'> & {
   redirect?: string
   meta?: Meta
-  children?: IRoute[]
+  children?: Route[]
   component?: React.ReactNode | null
 }
+
+export type RouteList = Route[]

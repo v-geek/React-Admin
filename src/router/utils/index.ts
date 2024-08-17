@@ -2,7 +2,7 @@ import { getMenuListApi } from '@/api/modules/user'
 import { store, useDispatch } from '@/store'
 import { setMenuList } from '@/store/modules/permission'
 import { setToken } from '@/store/modules/user'
-import { IRoute } from '../types'
+import { RouteList } from '../types'
 
 export const usePermission = () => {
   const dispatch = useDispatch()
@@ -35,11 +35,20 @@ export const usePermission = () => {
   return { initPermission }
 }
 
-export function getFlatMenuList(menuList: IRoute[]): IRoute[] {
-  const newMenuList: IRoute[] = JSON.parse(JSON.stringify(menuList))
+export function getFlatMenuList(menuList: RouteList): RouteList {
+  const newMenuList: RouteList = JSON.parse(JSON.stringify(menuList))
 
   return newMenuList.flatMap((item) => [
     item,
     ...(item.children ? getFlatMenuList(item.children) : []),
   ])
+}
+
+export function getShowMenuList(menuList: RouteList) {
+  const newMenuList: RouteList = JSON.parse(JSON.stringify(menuList))
+
+  return newMenuList.filter((item) => {
+    item.children?.length && (item.children = getShowMenuList(item.children))
+    return item.meta?.showInMenu !== false
+  })
 }

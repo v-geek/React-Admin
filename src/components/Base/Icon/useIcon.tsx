@@ -7,7 +7,7 @@ interface IconProps {
   className?: string
 }
 
-export const Icon: FC<IconProps> = memo(({ name, className }) => {
+export const useIcon: FC<IconProps> = memo(({ name, className }) => {
   if (!name) return
   return createElement(Icons[name], { className })
 })

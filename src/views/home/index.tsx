@@ -1,6 +1,4 @@
-const Home = (props) => {
-  console.log('props', props)
-
+const Home = () => {
   return <div>Home</div>
 }
 

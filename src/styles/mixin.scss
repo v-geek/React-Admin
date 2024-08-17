@@ -1,0 +1,43 @@
+// 自定义 Mixin
+
+@mixin flex($hor: center, $col: center) {
+  display: flex;
+  justify-content: $hor;
+  align-items: $col;
+}
+
+@mixin inline-flex($hor: center, $col: center) {
+  display: inline-flex;
+  justify-content: $hor;
+  align-items: $col;
+}
+
+@mixin posi-lt($left: 0, $top: 0) {
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+
+@mixin posi-rt($right: 0, $top: 0) {
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+@mixin posi-fixed-lt($left: 0, $top: 0) {
+  position: fixed;
+  left: $left;
+  top: $top;
+}
+
+@mixin posi-fixed-rt($right: 0, $top: 0) {
+  position: fixed;
+  right: $right;
+  top: $top;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

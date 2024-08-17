@@ -5,7 +5,7 @@ import {
   createHashRouter,
   createBrowserRouter,
 } from 'react-router-dom'
-import { IRoute } from './types'
+import { RouteList } from './types'
 import { staticRouterGuard } from './modules/staticRouter'
 import { RootState, useSelector } from '@/store'
 import { handleRouterFormat } from './utils/handleRouterFormat'
@@ -16,7 +16,7 @@ const mode = import.meta.env.VITE_ROUTER_MODE
 const Router: FC = () => {
   const menuList = useSelector((state: RootState) => state.permission.menuList)
 
-  const [routerList, setRouterList] = useState<IRoute[]>(staticRouterGuard)
+  const [routerList, setRouterList] = useState<RouteList>(staticRouterGuard)
 
   const { initPermission } = usePermission()
 

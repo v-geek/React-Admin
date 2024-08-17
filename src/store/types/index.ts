@@ -1,3 +1,6 @@
+import { Route, RouteList } from '@/router/types'
+import { SizeType } from 'antd/es/config-provider/SizeContext'
+
 export interface userState {
   token: null | string
   userInfo: null | UserInfo
@@ -10,8 +13,6 @@ export interface UserInfo {
 
 export type LayoutType = 'vertical' | 'classic' | 'transverse' | 'columns'
 
-export type ComponentSize = 'small' | 'default' | 'large'
-
 export type LanguageType = 'zh' | 'en' | null
 
 export interface SystemState {
@@ -20,15 +21,18 @@ export interface SystemState {
     isCollapse: boolean
   }
   keepAliveNameList: string[]
-  tabList: TabList
+  // tabList: TabList
+  tabList: any
   mainMaximize: boolean
   isDark: boolean
   themeColor: string
   language: LanguageType
   menuAccordion: boolean
-  componentSize: ComponentSize
+  componentSize: SizeType
   grayMode: boolean
   weakMode: boolean
+  compactAlgorithm: boolean
+  isHappy: boolean
 }
 
 export interface PermissionState {
@@ -36,7 +40,9 @@ export interface PermissionState {
   buttonData: {
     [key: string]: string[]
   } | null
-  menuList: MenuList | any
+  menuList: RouteList
+  showMenuList: RouteList
+  flatMenuList: RouteList
 }
 
 export interface IConfigState {

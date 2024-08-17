@@ -1,0 +1,21 @@
+.sidebar {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #001529;
+
+  .logo {
+    height: $headerHeight;
+    border-bottom: 1px solid #282a35;
+    overflow: hidden;
+    background-color: #001529;
+    box-sizing: border-box;
+    @include flex();
+    gap: 6px;
+
+    span {
+      font-size: 21.5px;
+      font-weight: bold;
+      color: #dadada;
+    }
+  }
+}

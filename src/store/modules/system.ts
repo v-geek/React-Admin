@@ -16,12 +16,13 @@ const systemSlice = createSlice({
     mainMaximize: false,
     isDark: false,
     themeColor: '#1890ff',
-    // 当前系统语言
     language: null,
     menuAccordion: true,
-    componentSize: 'default',
+    componentSize: 'middle',
     grayMode: false,
     weakMode: false,
+    compactAlgorithm: false,
+    isHappy: false,
   } as SystemState,
   reducers: {
     setSystemState(state, { payload }) {

@@ -1,5 +1,5 @@
-const Account = () => {
-  return <div>Account</div>
+const account = () => {
+  return <div>account</div>
 }
 
-export default Account
+export default account
