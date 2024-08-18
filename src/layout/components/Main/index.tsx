@@ -1,11 +1,14 @@
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
 import { useLocation, useOutlet } from 'react-router-dom'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
+import { RefreshContext } from '@/context/Refresh'
 
 const Main = () => {
   const outlet = useOutlet()
   const { pathname } = useLocation()
   const nodeRef = useRef()
+
+  const { outletShow } = useContext(RefreshContext)
 
   return (
     <SwitchTransition>
@@ -17,8 +20,8 @@ const Main = () => {
         exit={false}
         unmountOnExit
       >
-        <div ref={nodeRef} className="main-box">
-          {outlet}
+        <div ref={nodeRef} className="main-box flex-1">
+          {outletShow && outlet}
         </div>
       </CSSTransition>
     </SwitchTransition>

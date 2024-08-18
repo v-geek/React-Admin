@@ -1,0 +1,4 @@
+.header {
+  height: $headerHeight;
+  @include flex(space-between);
+}

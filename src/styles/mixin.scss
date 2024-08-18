@@ -36,6 +36,11 @@
   top: $top;
 }
 
+@mixin lh($height: auto) {
+  height: $height;
+  line-height: $height;
+}
+
 @mixin ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

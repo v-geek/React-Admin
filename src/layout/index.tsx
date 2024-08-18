@@ -2,6 +2,8 @@ import { RootState, useSelector } from '@/store'
 import logo from '@/assets/imgs/logo.svg'
 import './index.scss'
 import Menu from './components/Menu'
+import Header from './components/Header'
+import Tabs from './components/Tabs'
 import Main from './components/Main'
 
 const TITLE = import.meta.env.VITE_TITLE
@@ -21,7 +23,9 @@ const Layout = () => {
         <Menu />
       </div>
 
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 overflow-hidden flex flex-col">
+        <Header />
+        <Tabs />
         <Main />
       </div>
     </div>
