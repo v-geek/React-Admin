@@ -61,7 +61,8 @@ const Menu = () => {
       return setOpenKeys(openKeys)
     }
 
-    setOpenKeys([lastOpenKey]) // 手风琴模式
+    // 手风琴模式
+    setOpenKeys([lastOpenKey])
   }
 
   return (

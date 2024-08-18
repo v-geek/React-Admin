@@ -4,15 +4,13 @@ import Layout from '@/layout'
 import { getFlatMenuList } from '.'
 import { RouteList } from '../types'
 import RouterGuard from './RouterGuard'
-import SuspenseComponent from '@/components/Base/Suspense'
+import SuspenseComponent from '@/components/Suspense'
 
 const modules = import.meta.glob('@/views/**/*.tsx') as Recordable<
   Parameters<typeof lazy>[number]
 >
 
 export const handleRouterFormat = (menuList: RouteList) => {
-  const dynamicRouter: RouteList = [{ element: <Layout />, children: [] }]
-
   const flatMenuList = getFlatMenuList(menuList)
 
   const formatFlatMenuList = flatMenuList.map((item) => {
@@ -33,6 +31,8 @@ export const handleRouterFormat = (menuList: RouteList) => {
 
     return item
   })
+
+  const dynamicRouter: RouteList = [{ element: <Layout />, children: [] }]
 
   formatFlatMenuList.forEach((item) => {
     if (item.meta?.isFull) dynamicRouter.push(item)

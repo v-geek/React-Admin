@@ -32,8 +32,6 @@ const Router: FC = () => {
 
     allRouter.forEach((item) => item.path === '*' && (item.element = <div>404</div>))
 
-    // console.log('allRouter', allRouter)
-
     setRouterList(allRouter)
   }, [menuList])
 

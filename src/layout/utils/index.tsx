@@ -1,5 +1,5 @@
 import { RouteList } from '@/router/types'
-import Iconify from '@/components/Base/Icon/Iconify'
+import Iconify from '@/components/Icon/Iconify'
 
 export const handleMenuFormat = (list: RouteList) =>
   list.map((item) => {

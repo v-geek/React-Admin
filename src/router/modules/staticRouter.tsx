@@ -3,7 +3,7 @@ import RouterGuard from '../utils/RouterGuard'
 import { HOME_URL, LOGIN_URL } from '@/config'
 import { RouteList } from '../types'
 import Login from '@/views/user/login'
-import { Loading } from '@/components/Base/Loading'
+import { Loading } from '@/components/Loading'
 
 export const staticRouter: RouteList = [
   {
