@@ -20,28 +20,4 @@
       color: #dadada;
     }
   }
-
-  .ant-menu-root {
-    flex: 1;
-    overflow-y: auto;
-
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: transparent;
-      border-radius: 20px;
-      box-shadow: inset 0 0 0 white;
-    }
-
-    &::-webkit-scrollbar-corner {
-      background-color: transparent;
-    }
-
-    &:hover::-webkit-scrollbar-thumb {
-      background-color: #2b3b4b;
-    }
-  }
 }

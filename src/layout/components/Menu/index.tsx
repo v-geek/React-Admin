@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Menu as AntdMenu } from 'antd'
 import { shallowEqual } from 'react-redux'
+import { useLocation, useMatches, useNavigate } from 'react-router-dom'
+import { Menu as AntdMenu } from 'antd'
 import { RootState, useSelector } from '@/store'
 import { getOpenKeys, handleMenuFormat } from '@/layout/utils'
-import { useLocation, useMatches, useNavigate } from 'react-router-dom'
 import { Meta } from '@/router/types'
+import './index.scss'
 
 const Menu = () => {
   const { isCollapse, showMenuList, flatMenuList } = useSelector(

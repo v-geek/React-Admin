@@ -55,6 +55,14 @@ const App = () => {
       theme={{
         token: { colorPrimary: themeColor },
         algorithm: algorithm(),
+        components: {
+          Menu: {
+            darkSubMenuItemBg: '#0c2135',
+            itemBorderRadius: 0,
+            subMenuItemBorderRadius: 0,
+            itemMarginInline: 0,
+          },
+        },
       }}
     >
       <HappyProvider disabled={!isHappy}>
