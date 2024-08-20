@@ -1,15 +1,24 @@
 // nprogress样式
-// #nprogress .bar {
-//   background: var(--el-color-primary) !important;
-// }
+#nprogress .bar {
+  background: var(--colorPrimaryText) !important;
+}
 
-// #nprogress .spinner-icon {
-//   border-top-color: var(--el-color-primary) !important;
-//   border-left-color: var(--el-color-primary) !important;
-// }
+#nprogress .spinner-icon {
+  border-top-color: var(--colorPrimaryText) !important;
+  border-left-color: var(--colorPrimaryText) !important;
+}
 
-// #nprogress .peg {
-//   box-shadow:
-//     0 0 10px var(--el-color-primary),
-//     0 0 5px var(--el-color-primary) !important;
-// }
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--colorPrimaryText), 0 0 5px var(--colorPrimaryText) !important;
+}
+
+.header-icon {
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s !important;
+  color: #000 !important;
+
+  &:hover {
+    color: var(--colorPrimaryText) !important;
+  }
+}

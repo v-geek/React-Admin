@@ -5,11 +5,12 @@ import { createFromIconfontCN } from '@ant-design/icons'
 interface IconProps {
   name: string
   className?: string
+  onClick?: Function
 }
 
-export const useIcon: FC<IconProps> = memo(({ name, className }) => {
+export const AntdIcon: FC<IconProps> = memo(({ name, className, onClick }) => {
   if (!name) return
-  return createElement(Icons[name], { className })
+  return createElement(Icons[name], { className, onClick })
 })
 
 export const IconFont = createFromIconfontCN({

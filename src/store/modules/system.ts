@@ -21,16 +21,19 @@ const systemSlice = createSlice({
     componentSize: 'middle',
     grayMode: false,
     weakMode: false,
-    compactAlgorithm: false,
+    compactAlgorithm: false, // 紧凑算法
     isHappy: false,
   } as SystemState,
   reducers: {
     setSystemState(state, { payload }) {
       state[payload.key] = payload.value
     },
+    setSideBarState(state, { payload }) {
+      state.sideBar[payload.key] = payload.value
+    },
   },
 })
 
-export const { setSystemState } = systemSlice.actions
+export const { setSystemState, setSideBarState } = systemSlice.actions
 
 export default systemSlice.reducer

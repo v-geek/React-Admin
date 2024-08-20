@@ -10,14 +10,17 @@ import { staticRouterGuard } from './modules/staticRouter'
 import { RootState, useSelector } from '@/store'
 import { handleRouterFormat } from './utils/handleRouterFormat'
 import { usePermission } from './utils'
+import useMessage from '@/hooks/useMessage'
+import useTheme from '@/hooks/useTheme'
 
 const mode = import.meta.env.VITE_ROUTER_MODE
 
 const Router: FC = () => {
+  useMessage()
+  useTheme()
+
   const menuList = useSelector((state: RootState) => state.permission.menuList)
-
   const [routerList, setRouterList] = useState<RouteList>(staticRouterGuard)
-
   const { initPermission } = usePermission()
 
   useEffect(() => {
