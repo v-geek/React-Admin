@@ -17,7 +17,7 @@ export const staticRouter: RouteList = [
       title: '登录',
     },
   },
-  // Set <Loading /> here first to prevent page refresh 404
+  // 刷新页面的时候 动态路由等 先匹配到这里来
   {
     path: '*',
     element: <Loading />,

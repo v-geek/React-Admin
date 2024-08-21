@@ -4,6 +4,7 @@ import {
   RouteObject,
   createHashRouter,
   createBrowserRouter,
+  Navigate,
 } from 'react-router-dom'
 import { RouteList } from './types'
 import { staticRouterGuard } from './modules/staticRouter'
@@ -33,7 +34,10 @@ const Router: FC = () => {
 
     const allRouter = [...staticRouterGuard, ...dynamicRouter]
 
-    allRouter.forEach((item) => item.path === '*' && (item.element = <div>404</div>))
+    // 替换404路由的组件  优化 to-do : 需要添加静态路由 /error/403 /error/404
+    allRouter.forEach(
+      (item) => item.path === '*' && (item.element = <Navigate to="/error/404" />)
+    )
 
     setRouterList(allRouter)
   }, [menuList])
