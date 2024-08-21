@@ -37,9 +37,7 @@ export interface SystemState {
 
 export interface PermissionState {
   curRouteName: string
-  buttonData: {
-    [key: string]: string[]
-  } | null
+  buttonData: Recordable<string[]>
   menuList: RouteList
   showMenuList: RouteList
   flatMenuList: RouteList

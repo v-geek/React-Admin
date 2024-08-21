@@ -8,11 +8,12 @@ import { Meta } from '@/router/types'
 import './index.scss'
 
 const Menu = () => {
-  const { isCollapse, showMenuList, flatMenuList } = useSelector(
+  const { isCollapse, showMenuList, flatMenuList, menuAccordion } = useSelector(
     (state: RootState) => ({
       isCollapse: state.system.sideBar.isCollapse,
       showMenuList: state.permission.showMenuList,
       flatMenuList: state.permission.flatMenuList,
+      menuAccordion: state.system.menuAccordion,
     }),
     shallowEqual
   )
@@ -74,8 +75,7 @@ const Menu = () => {
       inlineCollapsed={isCollapse}
       items={antdMenuList}
       selectedKeys={selectedKeys}
-      openKeys={openKeys}
-      onOpenChange={onOpenChange}
+      {...(menuAccordion ? { openKeys, onOpenChange } : {})}
     />
   )
 }

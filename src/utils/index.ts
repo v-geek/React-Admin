@@ -9,3 +9,13 @@ export function getBrowserLang(): 'zh' | 'en' {
 export function setHtmlStyleProperty(key: string, val: string) {
   document.documentElement.style.setProperty(key, val)
 }
+
+const mode = import.meta.env.VITE_MODE
+
+export function getUrlWithParams() {
+  const url = {
+    hash: location.hash.substring(1),
+    history: location.pathname + location.search,
+  }
+  return url[mode]
+}

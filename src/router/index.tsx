@@ -13,7 +13,7 @@ import { usePermission } from './utils'
 import useMessage from '@/hooks/useMessage'
 import useTheme from '@/hooks/useTheme'
 
-const mode = import.meta.env.VITE_ROUTER_MODE
+const mode = import.meta.env.VITE_MODE
 
 const Router: FC = () => {
   useMessage()

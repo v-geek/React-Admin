@@ -13,6 +13,7 @@ export interface Meta {
 }
 
 export type Route = Omit<RouteObject, 'children' | 'component'> & {
+  name?: string
   redirect?: string
   meta?: Meta
   children?: Route[]

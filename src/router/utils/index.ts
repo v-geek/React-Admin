@@ -2,7 +2,8 @@ import { getMenuListApi } from '@/api/modules/user'
 import { store, useDispatch } from '@/store'
 import { setMenuList } from '@/store/modules/permission'
 import { setToken } from '@/store/modules/user'
-import { RouteList } from '../types'
+import { Route, RouteList } from '../types'
+import { getUrlWithParams } from '@/utils'
 
 export const usePermission = () => {
   const dispatch = useDispatch()
@@ -51,4 +52,16 @@ export function getShowMenuList(menuList: RouteList) {
     item.children?.length && (item.children = getShowMenuList(item.children))
     return item.meta?.showInMenu !== false
   })
+}
+
+export function getMenuItemByPath(
+  menulist: Route[] = store.getState().permission.flatMenuList,
+  path: string = getUrlWithParams()
+) {
+  const menuItem = menulist.find((menu) => {
+    // 匹配动态路由
+    const regex = new RegExp(`^${menu.path?.replace(/:.[^/]*/, '.*')}$`)
+    return regex.test(path)
+  })
+  return menuItem || {}
 }

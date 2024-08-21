@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { shallowEqual } from 'react-redux'
 import { Drawer, Switch, Divider, ColorPicker, theme } from 'antd'
+import type { AggregationColor } from 'antd/es/color-picker/color'
+import type { PresetsItem } from 'antd/es/color-picker/interface'
 import { SettingOutlined } from '@ant-design/icons'
 import { RootState, useDispatch, useSelector } from '@/store'
-import { PresetsItem } from 'antd/es/color-picker/interface'
 import { setSystemState } from '@/store/modules/system'
-import { AggregationColor } from 'antd/es/color-picker/color'
 
 const Setting = () => {
   const [visible, setVisible] = useState(false)
@@ -42,7 +42,17 @@ const Setting = () => {
     dispatch(setSystemState({ key: 'themeColor', value: value.toHexString() }))
   }
 
-  console.log('theme.useToken()', theme.useToken())
+  // console.log('theme.useToken()', theme.useToken())
+
+  const changeGray = (value: boolean) => {
+    if (weakMode) dispatch(setSystemState({ key: 'weakMode', value: false }))
+    dispatch(setSystemState({ key: 'grayMode', value }))
+  }
+
+  const changeWeak = (value: boolean) => {
+    if (grayMode) dispatch(setSystemState({ key: 'grayMode', value: false }))
+    dispatch(setSystemState({ key: 'weakMode', value }))
+  }
 
   return (
     <>
@@ -71,12 +81,12 @@ const Setting = () => {
 
           <div className="flex-between">
             <span>灰色模式</span>
-            <Switch checked={grayMode} />
+            <Switch checked={grayMode} onChange={changeGray} />
           </div>
 
           <div className="flex-between">
             <span>色弱模式</span>
-            <Switch checked={weakMode} />
+            <Switch checked={weakMode} onChange={changeWeak} />
           </div>
         </div>
 
