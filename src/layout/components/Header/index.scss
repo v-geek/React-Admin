@@ -1,9 +1,3 @@
-.header {
-  height: $headerHeight;
-  @include flex(space-between);
-  padding: 0 16px;
-}
-
 .set-box {
   .ant-drawer-body {
     padding-top: 12px;

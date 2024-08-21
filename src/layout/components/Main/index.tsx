@@ -7,7 +7,6 @@ const Main = () => {
   const outlet = useOutlet()
   const { pathname } = useLocation()
   const nodeRef = useRef()
-
   const { outletShow } = useContext(RefreshContext)
 
   return (
@@ -20,7 +19,7 @@ const Main = () => {
         exit={false}
         unmountOnExit
       >
-        <div ref={nodeRef} className="main-box flex-1">
+        <div ref={nodeRef} className="main">
           {outletShow && outlet}
         </div>
       </CSSTransition>

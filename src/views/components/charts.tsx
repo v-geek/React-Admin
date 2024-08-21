@@ -24,7 +24,7 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div className="h-[600px] overflow-y-scroll" style={{ border: '1px solid red' }}>
+    <div className="bg-white p-4">
       <Form
         name="basic"
         labelCol={{ span: 8 }}

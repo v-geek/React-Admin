@@ -23,3 +23,33 @@
     }
   }
 }
+
+.right-layout {
+  @apply flex-1 flex flex-col h-screen overflow-hidden;
+  background-color: $mainBgColor;
+
+  > .header {
+    height: $headerHeight;
+    @include flex(space-between);
+    padding: 0 16px;
+    background-color: #ffffff;
+  }
+
+  > .tabs {
+    @include lh($tabHeight);
+    box-sizing: border-box;
+    transition: all 0.2s;
+    @include flex(space-between);
+    background-color: #ffffff;
+    padding: 1px 0;
+    border-top: 1px solid #e4e7ed;
+    border-bottom: 1px solid #e4e7ed;
+  }
+
+  .main {
+    flex: 1;
+    background-color: $mainBgColor;
+    padding: 16px;
+    overflow-y: auto;
+  }
+}

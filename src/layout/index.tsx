@@ -13,7 +13,7 @@ const Layout = () => {
   const sideBarWidth = isCollapse ? 64 : 210
 
   return (
-    <div className="flex w-screen h-screen overflow-hidden">
+    <div className="flex">
       <div className="sidebar" style={{ width: sideBarWidth + 'px' }}>
         <div className="logo">
           <img src={logo} alt="logo" />
@@ -23,7 +23,7 @@ const Layout = () => {
         <Menu />
       </div>
 
-      <div className="flex-1 overflow-hidden flex flex-col">
+      <div className="right-layout">
         <Header />
         <Tabs />
         <Main />

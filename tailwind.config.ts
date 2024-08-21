@@ -12,6 +12,7 @@ export default {
       // 添加颜色  eg: text-primary
       colors: {
         dark: '#1f1f1f',
+        'base-color': 'var(--colorText)',
       },
     },
   },
