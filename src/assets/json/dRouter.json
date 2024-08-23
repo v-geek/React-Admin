@@ -211,7 +211,7 @@
               "component": "/systemManage/account/childs/page1",
               "meta": {
                 "title": "子页面1",
-                "showInMenu": false
+                "hide": true
               },
               "children": [
                 {
@@ -220,7 +220,7 @@
                   "component": "/systemManage/account/childs/pageOuter",
                   "meta": {
                     "title": "嵌套最外层子页面-Outer",
-                    "showInMenu": false
+                    "hide": true
                   }
                 }
               ]

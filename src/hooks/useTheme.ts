@@ -8,7 +8,7 @@ import { getDarkColor, getLightColor } from '@/utils/theme'
 const useTheme = () => {
   const { token } = theme.useToken()
 
-  console.log('theme.useToken()', theme.useToken())
+  // console.log('theme.useToken()', theme.useToken())
 
   const { isDark, themeColor, compactAlgorithm, grayMode, weakMode } = useSelector(
     (state: RootState) => ({

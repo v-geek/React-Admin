@@ -1,12 +1,12 @@
 import { RouteObject } from 'react-router-dom'
 
 export interface Meta {
-  key?: string
+  name?: string
   icon?: string
   title?: string
   activeMenu?: string
   isLink?: string
-  showInMenu?: boolean
+  hide?: boolean
   isFull?: boolean
   // isAffix?: boolean
   keepAlive?: boolean

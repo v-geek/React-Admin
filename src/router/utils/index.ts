@@ -50,7 +50,7 @@ export function getShowMenuList(menuList: RouteList) {
 
   return newMenuList.filter((item) => {
     item.children?.length && (item.children = getShowMenuList(item.children))
-    return item.meta?.showInMenu !== false
+    return !item.meta?.hide
   })
 }
 
