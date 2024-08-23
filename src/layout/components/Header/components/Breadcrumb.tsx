@@ -1,26 +1,10 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Link, useMatches } from 'react-router-dom'
+import { useMatches } from 'react-router-dom'
 import { Breadcrumb as AntdBreadcrumb } from 'antd'
 import { ItemType } from 'antd/es/breadcrumb/Breadcrumb'
 import { RootState, useSelector } from '@/store'
-import { Route, Meta } from '@/router/types'
-
-function getAllBreadcrumbList(
-  menuList: Route[],
-  parent: Route[] = [],
-  result: Recordable<Route[]> = {}
-) {
-  for (const item of menuList) {
-    result[item.name] = [...parent, item]
-    if (item.children) getAllBreadcrumbList(item.children, result[item.name], result)
-  }
-  return result
-}
-
-const renderTitle = (item: Route, isLink: boolean = true) => {
-  const title = item.meta?.title || ''
-  return { title: isLink ? <Link to={item.path}>{title}</Link> : title }
-}
+import { Meta } from '@/router/types'
+import { getAllBreadcrumbList, renderTitle } from '@/layout/utils'
 
 const Breadcrumb = () => {
   const matches = useMatches()

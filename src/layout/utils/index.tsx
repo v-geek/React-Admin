@@ -1,5 +1,6 @@
-import { RouteList } from '@/router/types'
+import { Link } from 'react-router-dom'
 import Iconify from '@/components/Icon/Iconify'
+import type { Route, RouteList } from '@/router/types'
 
 export const handleMenuFormat = (list: RouteList) =>
   list.map((item) => {
@@ -29,4 +30,21 @@ export function getOpenKeys(path: string): string[] {
   }
 
   return openKeys
+}
+
+export const getAllBreadcrumbList = (
+  menuList: Route[],
+  parent: Route[] = [],
+  result: Recordable<Route[]> = {}
+) => {
+  for (const item of menuList) {
+    result[item.name] = [...parent, item]
+    if (item.children) getAllBreadcrumbList(item.children, result[item.name], result)
+  }
+  return result
+}
+
+export const renderTitle = (item: Route, isLink: boolean = true) => {
+  const title = item.meta?.title || ''
+  return { title: isLink ? <Link to={item.path}>{title}</Link> : title }
 }

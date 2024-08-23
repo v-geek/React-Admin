@@ -10,7 +10,7 @@ import { RouteList } from './types'
 import { staticRouterGuard } from './modules/staticRouter'
 import { RootState, useSelector } from '@/store'
 import { handleRouterFormat } from './utils/handleRouterFormat'
-import { usePermission } from './utils'
+import { usePermissions } from '@/hooks/usePermissions'
 import useMessage from '@/hooks/useMessage'
 import useTheme from '@/hooks/useTheme'
 
@@ -22,11 +22,11 @@ const Router: FC = () => {
 
   const menuList = useSelector((state: RootState) => state.permission.menuList)
   const [routerList, setRouterList] = useState<RouteList>(staticRouterGuard)
-  const { initPermission } = usePermission()
+  const { initPermissions } = usePermissions()
 
   useEffect(() => {
     if (!menuList.length) {
-      initPermission()
+      initPermissions()
       return
     }
 

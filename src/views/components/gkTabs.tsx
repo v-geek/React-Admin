@@ -1,5 +1,5 @@
-const Login = () => {
-  return <div>Login</div>
+const gkTabs = () => {
+  return <div>gkTabs</div>
 }
 
-export default Login
+export default gkTabs

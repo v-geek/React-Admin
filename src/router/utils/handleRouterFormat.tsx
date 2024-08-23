@@ -26,7 +26,7 @@ export const handleRouterFormat = (menuList: RouteList) => {
     }
 
     item.loader = () => {
-      return { ...item.meta, name: item.name }
+      return { ...item.meta, name: item.name, redirect: !!item.redirect }
     }
 
     return item

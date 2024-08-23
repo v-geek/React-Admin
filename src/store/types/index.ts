@@ -58,3 +58,16 @@ export interface LockInfo {
   isLock?: boolean
   password?: string | undefined
 }
+
+export interface TabItem {
+  title: string
+  fullPath: string
+  icon?: string
+  closable?: boolean
+}
+
+export type TabList = TabItem[]
+
+export interface TabsState {
+  tabList: TabItem[]
+}

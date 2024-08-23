@@ -10,6 +10,7 @@ import { thunk } from 'redux-thunk'
 import permission from './modules/permission'
 import system from './modules/system'
 import user from './modules/user'
+import tabs from './modules/tabs'
 
 const persistReducers = persistReducer(
   {
@@ -17,7 +18,7 @@ const persistReducers = persistReducer(
     storage: storage,
     blacklist: ['permission'],
   },
-  combineReducers({ permission, system, user })
+  combineReducers({ permission, system, user, tabs })
 )
 
 const middleWares: Middleware[] = [thunk]
