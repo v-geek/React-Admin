@@ -1,15 +1,11 @@
 import { useEffect } from 'react'
-import { theme } from 'antd'
 import { shallowEqual } from 'react-redux'
 import { RootState, useSelector } from '@/store'
 import { setHtmlStyleProperty } from '@/utils'
 import { getDarkColor, getLightColor } from '@/utils/theme'
+import commonTheme from '@/styles/theme/common'
 
 const useTheme = () => {
-  const { token } = theme.useToken()
-
-  // console.log('theme.useToken()', theme.useToken())
-
   const { isDark, themeColor, compactAlgorithm, grayMode, weakMode } = useSelector(
     (state: RootState) => ({
       isDark: state.system.isDark,
@@ -32,11 +28,15 @@ const useTheme = () => {
   }
 
   const changeTheme = () => {
-    Object.entries(token).forEach(([key, val]) => setHtmlStyleProperty(`--${key}`, val))
+    const type = isDark ? 'dark' : 'light'
+
+    Object.entries(commonTheme[type]).forEach(([key, val]) =>
+      setHtmlStyleProperty(key, val as string)
+    )
 
     for (let i = 1; i <= 9; i++) {
       setHtmlStyleProperty(
-        `--colorPrimary${i}`,
+        `--ant-color-primary-${i}`,
         !isDark
           ? `${getLightColor(themeColor, i / 10)}`
           : `${getDarkColor(themeColor, i / 10)}`

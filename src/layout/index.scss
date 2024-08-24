@@ -10,7 +10,7 @@
     height: $headerHeight;
     border-bottom: 1px solid #282a35;
     overflow: hidden;
-    background-color: #001529;
+    background-color: var(--admin-sidebar-bg);
     box-sizing: border-box;
     @include flex();
     gap: 6px;
@@ -26,13 +26,12 @@
 
 .right-layout {
   @apply flex-1 flex flex-col h-screen overflow-hidden;
-  background-color: $mainBgColor;
 
   > .header {
     height: $headerHeight;
     @include flex(space-between);
     padding: 0 16px;
-    background-color: #ffffff;
+    background-color: var(--ant-color-bg-container);
   }
 
   > .tabs {
@@ -40,17 +39,18 @@
     box-sizing: border-box;
     transition: all 0.2s;
     @include flex(space-between, flex-end);
-    background-color: #ffffff;
+    background-color: var(--ant-color-bg-container);
     padding: 1px 0;
-    border-top: 1px solid #e4e7ed;
-    border-bottom: 1px solid #e4e7ed;
+    border-top: 1px solid var(--admin-border-color-light);
+    border-bottom: 1px solid var(--admin-border-color-light);
     padding-left: 3px;
   }
 
   .main {
     flex: 1;
-    background-color: $mainBgColor;
+    background-color: var(--admin-main-bg);
     padding: 16px;
     overflow-y: auto;
+    scrollbar-color: var(--admin-main-scrollbar-bg);
   }
 }

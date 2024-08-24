@@ -18,6 +18,6 @@
   }
 
   &:hover::-webkit-scrollbar-thumb {
-    background-color: #2b3b4b;
+    background-color: var(--admin-menu-scrollbar-thumb-bg);
   }
 }

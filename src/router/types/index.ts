@@ -10,6 +10,7 @@ export interface Meta {
   isFull?: boolean
   // isAffix?: boolean
   keepAlive?: boolean
+  mainFull?: boolean
 }
 
 export type Route = Omit<RouteObject, 'children' | 'component'> & {

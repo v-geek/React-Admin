@@ -1,15 +1,16 @@
 import { useEffect, useMemo, useState } from 'react'
 import { shallowEqual } from 'react-redux'
 import { useLocation, useMatches, useNavigate } from 'react-router-dom'
-import { Menu as AntdMenu } from 'antd'
+import { Menu as AntdMenu, ConfigProvider } from 'antd'
 import { RootState, useSelector } from '@/store'
 import { getOpenKeys, handleMenuFormat } from '@/layout/utils'
 import { Meta } from '@/router/types'
 import './index.scss'
 
 const Menu = () => {
-  const { isCollapse, showMenuList, flatMenuList, menuAccordion } = useSelector(
+  const { isDark, isCollapse, showMenuList, flatMenuList, menuAccordion } = useSelector(
     (state: RootState) => ({
+      isDark: state.system.isDark,
       isCollapse: state.system.sideBar.isCollapse,
       showMenuList: state.permission.showMenuList,
       flatMenuList: state.permission.flatMenuList,
@@ -68,15 +69,29 @@ const Menu = () => {
   }
 
   return (
-    <AntdMenu
-      theme="dark"
-      mode="inline"
-      onClick={handleClick}
-      inlineCollapsed={isCollapse}
-      items={antdMenuList}
-      selectedKeys={selectedKeys}
-      {...(menuAccordion ? { openKeys, onOpenChange } : {})}
-    />
+    <ConfigProvider
+      theme={{
+        components: {
+          Menu: {
+            darkItemBg: isDark ? '#2d2d2d' : '#001529',
+            darkSubMenuItemBg: isDark ? '#1f1f1f' : '#0c2135',
+            itemBorderRadius: 0,
+            subMenuItemBorderRadius: 0,
+            itemMarginInline: 0,
+          },
+        },
+      }}
+    >
+      <AntdMenu
+        theme="dark"
+        mode="inline"
+        onClick={handleClick}
+        inlineCollapsed={isCollapse}
+        items={antdMenuList}
+        selectedKeys={selectedKeys}
+        {...(menuAccordion ? { openKeys, onOpenChange } : {})}
+      />
+    </ConfigProvider>
   )
 }
 

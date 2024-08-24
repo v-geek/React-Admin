@@ -17,14 +17,8 @@ const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
 }
 
 const App: React.FC = () => {
-  const testRef = useRef()
-
-  // useEffect(() => {
-  //   console.log('testRef', testRef)
-  // }, [])
-
   return (
-    <div className="bg-white p-4">
+    <div className="bg-white dark:bg-dark p-4">
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -67,7 +61,7 @@ const App: React.FC = () => {
 
         <div>12135555</div>
 
-        <div ref={testRef}>
+        <div>
           {Array(100)
             .fill('')
             .map((item, index) => (

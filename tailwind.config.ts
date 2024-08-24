@@ -9,10 +9,10 @@ export default {
   },
   theme: {
     extend: {
-      // 添加颜色  eg: text-primary
+      // 添加颜色 eg: text-base-color
       colors: {
-        dark: '#1f1f1f',
-        'base-color': 'var(--colorText)',
+        dark: '#1f1f1f', // 暗黑模式下的组件背景色 eg: bg-white dark:bg-dark
+        'base-color': 'var(--ant-color-text)',
       },
     },
   },

@@ -5,7 +5,8 @@
 
   .ant-tabs-nav .ant-tabs-tab {
     padding: 4px 14px !important;
-    background-color: #ffffff;
+    background-color: var(--ant-color-bg-container);
+    border-color: var(--admin-border-color-light);
   }
 
   .ant-tabs {
@@ -16,7 +17,7 @@
     width: 45px;
     height: 100%;
     box-sizing: border-box;
-    border-left: 1px solid #e4e7ed;
+    border-left: 1px solid var(--admin-border-color-light);
     @include flex();
 
     .icon {
