@@ -9,6 +9,8 @@ export interface UserInfo {
 export interface UserState {
   token: null | string
   userInfo: null | UserInfo
+  testData: any[]
+  [key: string]: any
 }
 
 export type LayoutType = 'vertical' | 'classic' | 'transverse' | 'columns'

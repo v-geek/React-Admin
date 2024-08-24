@@ -25,6 +25,7 @@ const middleWares: Middleware[] = [thunk]
 
 export const store = configureStore({
   reducer: persistReducers,
+  // 关闭序列化检查
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(middleWares),
   devTools: true,
@@ -33,7 +34,7 @@ export const store = configureStore({
 export const persistor = persistStore(store)
 
 export type RootState = ReturnType<typeof store.getState>
-type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch
 
 export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector
 export const useDispatch: () => AppDispatch = useReduxDispatch

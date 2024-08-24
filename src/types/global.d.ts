@@ -40,7 +40,8 @@ declare interface ComponentElRef<T extends HTMLElement = HTMLDivElement> {
   $el: T
 }
 
-declare type ComponentRef<T extends HTMLElement = HTMLDivElement> = ComponentElRef<T> | null
+declare type ComponentRef<T extends HTMLElement = HTMLDivElement> =
+  ComponentElRef<T> | null
 
 declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>
 
@@ -50,3 +51,5 @@ declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>
 declare type ToInterface<T extends string | number | symbol, U> = {
   [P in T]: U
 }
+
+declare type Func<T> = () => T
