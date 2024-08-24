@@ -1,14 +1,14 @@
-import { Route, RouteList } from '@/router/types'
 import { SizeType } from 'antd/es/config-provider/SizeContext'
-
-export interface userState {
-  token: null | string
-  userInfo: null | UserInfo
-}
+import { RouteList } from '@/router/types'
 
 export interface UserInfo {
   username: 'Admin'
   [key: string]: any
+}
+
+export interface UserState {
+  token: null | string
+  userInfo: null | UserInfo
 }
 
 export type LayoutType = 'vertical' | 'classic' | 'transverse' | 'columns'

@@ -49,9 +49,6 @@ const tabsSlice = createSlice({
       const delIndex = tabList.findIndex((item: TabItem) => item.fullPath === fullPath)
       tabList.splice(delIndex, 1)
     },
-    setTabList(state, { payload }: PayloadAction<TabsState['tabList']>) {
-      state.tabList = payload
-    },
     sortTabs(
       { tabList },
       {
@@ -62,9 +59,29 @@ const tabsSlice = createSlice({
       tabList.splice(oldIndex, 1)
       tabList.splice(newIndex, 0, currentTab)
     },
+    removeLeftTabs({ tabList }, { payload }: PayloadAction<string>) {
+      const delIndex = tabList.findIndex((item: TabItem) => item.fullPath === payload)
+      tabList.splice(0, delIndex)
+    },
+    removeRightTabs({ tabList }, { payload }: PayloadAction<string>) {
+      const delIndex = tabList.findIndex((item: TabItem) => item.fullPath === payload)
+      tabList.splice(delIndex + 1)
+    },
+    // 删除多个Tab
+    // 不传fullPath则是 删除所有Tab
+    removeMultipleTabs(state, { payload }: PayloadAction<string | undefined>) {
+      state.tabList = state.tabList.filter((item: TabItem) => item.fullPath === payload)
+    },
   },
 })
 
-export const { addTab, removeTab, setTabList, sortTabs } = tabsSlice.actions
+export const {
+  addTab,
+  removeTab,
+  sortTabs,
+  removeLeftTabs,
+  removeRightTabs,
+  removeMultipleTabs,
+} = tabsSlice.actions
 
 export default tabsSlice.reducer

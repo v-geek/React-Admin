@@ -1,7 +1,7 @@
+import { message } from '@/hooks/useMessage'
+
 // https://blog.csdn.net/csdn2314/article/details/107203776
 // RGB的数值 = 16 * HEX的第一位 + HEX的第二位
-
-import { message } from '@/hooks/useMessage'
 
 // hex颜色转rgb颜色
 export function hexToRgb(str: string): number[] | any {

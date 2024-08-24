@@ -1,5 +1,5 @@
-const gkTabs = () => {
-  return <div>gkTabs</div>
+const gkDrawer = () => {
+  return <div>gkDrawer</div>
 }
 
-export default gkTabs
+export default gkDrawer

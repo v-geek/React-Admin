@@ -5,5 +5,24 @@
 
   .ant-tabs-nav .ant-tabs-tab {
     padding: 4px 14px !important;
+    background-color: #ffffff;
+  }
+
+  .ant-tabs {
+    width: 100%;
+  }
+
+  .more-button {
+    width: 45px;
+    height: 100%;
+    box-sizing: border-box;
+    border-left: 1px solid #e4e7ed;
+    @include flex();
+
+    .icon {
+      font-size: 17px;
+      color: rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+    }
   }
 }

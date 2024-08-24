@@ -19,9 +19,9 @@ const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
 const App: React.FC = () => {
   const testRef = useRef()
 
-  useEffect(() => {
-    console.log('testRef', testRef)
-  }, [])
+  // useEffect(() => {
+  //   console.log('testRef', testRef)
+  // }, [])
 
   return (
     <div className="bg-white p-4">
