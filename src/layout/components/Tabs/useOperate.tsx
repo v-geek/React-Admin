@@ -41,6 +41,11 @@ export const useOperate = (fullPath: string) => {
     setTimeout(() => updateOutletShow(true))
   }
 
+  // 没有阻止冒泡, 触发Tab的点击事件, 最大化时 若不是当前Tab 刚好切换过去
+  const maximize = () => {
+    dispatch(setSystemState({ key: 'mainMaximize', value: true }))
+  }
+
   const closeCurrentTab = ({ domEvent }, tab: TabItem) => {
     domEvent.stopPropagation()
     const action = removeTab({
@@ -117,7 +122,8 @@ export const useOperate = (fullPath: string) => {
       key: 2,
       label: <span>最大化</span>,
       icon: <FullscreenOutlined />,
-      onClick: () => dispatch(setSystemState({ key: 'mainMaximize', value: true })),
+
+      onClick: () => maximize(),
     },
     {
       type: 'divider',
