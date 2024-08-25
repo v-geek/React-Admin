@@ -1,9 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { getUserInfoApi } from '@/api/modules/user'
 import { UserState } from '../types'
-import { AppDispatch, RootState } from '..'
-
-// 修改初始值的时候  如何同步到storage中
 
 const userState: UserState = {
   token: 'xxxxxx',
@@ -24,21 +20,18 @@ const userSlice = createSlice({
     setToken(state, { payload }: PayloadAction<string>) {
       state.token = payload
     },
-    testThunk(state, { payload }: PayloadAction<string>) {
-      console.log('测试结果', payload)
+    testThunk(state, { payload }: PayloadAction<any>) {
+      console.log('测试thunk结果', payload)
+    },
+    testLikesSaga(state, { payload }: PayloadAction<any>) {
+      console.log('测试saga结果-likes', payload)
+    },
+    testLikesJob(state, { payload }: PayloadAction<any>) {
+      console.log('测试saga结果-job', payload)
     },
   },
 })
 
 export const { getTestData } = userSlice.selectors
-export const { setToken, testThunk } = userSlice.actions
+export const { setToken, testThunk, testLikesSaga, testLikesJob } = userSlice.actions
 export default userSlice.reducer
-
-export const getUserInfo = (id: string) => {
-  return async (dispatch: AppDispatch, getState: Func<RootState>) => {
-    const res = await getUserInfoApi(id)
-    console.log('res', res)
-    dispatch(testThunk(res as string))
-    return { name: 'zzy', success: true }
-  }
-}

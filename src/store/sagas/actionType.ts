@@ -1,0 +1,2 @@
+export const USER_FETCH_LIKES = 'USER_FETCH_LIKES'
+export const USER_FETCH_JOB = 'USER_FETCH_JOB'

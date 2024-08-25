@@ -7,10 +7,13 @@ import {
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { thunk } from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 import permission from './modules/permission'
 import system from './modules/system'
 import user from './modules/user'
 import tabs from './modules/tabs'
+
+import UserSaga from './sagas/user'
 
 const persistReducers = persistReducer(
   {
@@ -21,7 +24,14 @@ const persistReducers = persistReducer(
   combineReducers({ permission, system, user, tabs })
 )
 
-const middleWares: Middleware[] = [thunk]
+// --------------- saga -------------
+const sagaMiddleware = createSagaMiddleware()
+const sagaObj = {
+  UserSaga,
+}
+// ----------------------------
+
+const middleWares: Middleware[] = [thunk, sagaMiddleware]
 
 export const store = configureStore({
   reducer: persistReducers,
@@ -30,6 +40,8 @@ export const store = configureStore({
     getDefaultMiddleware({ serializableCheck: false }).concat(middleWares),
   devTools: true,
 })
+
+Object.values(sagaObj).forEach((saga) => sagaMiddleware.run(saga))
 
 export const persistor = persistStore(store)
 
