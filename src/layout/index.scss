@@ -1,55 +1,57 @@
-.sidebar {
-  height: 100vh;
-  overflow: hidden;
-  background-color: #001529;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
-
-  .logo {
-    height: $headerHeight;
-    border-bottom: 1px solid #282a35;
+.system-box {
+  .sidebar {
+    height: 100vh;
     overflow: hidden;
-    background-color: var(--admin-sidebar-bg);
-    box-sizing: border-box;
-    @include flex();
-    gap: 6px;
-    @include ellipsis();
+    background-color: #001529;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
 
-    span {
-      font-size: 21.5px;
-      font-weight: bold;
-      color: #dadada;
+    .logo {
+      height: $headerHeight;
+      border-bottom: 1px solid #282a35;
+      overflow: hidden;
+      background-color: var(--admin-sidebar-bg);
+      box-sizing: border-box;
+      @include flex();
+      gap: 6px;
+      @include ellipsis();
+
+      span {
+        font-size: 21.5px;
+        font-weight: bold;
+        color: #dadada;
+      }
     }
   }
-}
 
-.right-layout {
-  @apply flex-1 flex flex-col h-screen overflow-hidden;
+  .right-layout {
+    @apply flex-1 flex flex-col h-screen overflow-hidden;
 
-  > .header {
-    height: $headerHeight;
-    @include flex(space-between);
-    padding: 0 16px;
-    background-color: var(--ant-color-bg-container);
-  }
+    > .header {
+      height: $headerHeight;
+      @include flex(space-between);
+      padding: 0 16px;
+      background-color: var(--ant-color-bg-container);
+    }
 
-  > .tabs {
-    height: $tabHeight;
-    box-sizing: border-box;
-    transition: all 0.2s;
-    @include flex(space-between, flex-end);
-    background-color: var(--ant-color-bg-container);
-    padding: 1px 0;
-    border-top: 1px solid var(--admin-border-color-light);
-    border-bottom: 1px solid var(--admin-border-color-light);
-    padding-left: 3px;
-  }
+    > .tabs {
+      height: $tabHeight;
+      box-sizing: border-box;
+      transition: all 0.2s;
+      @include flex(space-between, flex-end);
+      background-color: var(--ant-color-bg-container);
+      padding: 1px 0;
+      border-top: 1px solid var(--admin-border-color-light);
+      border-bottom: 1px solid var(--admin-border-color-light);
+      padding-left: 3px;
+    }
 
-  .main {
-    flex: 1;
-    background-color: var(--admin-main-bg);
-    overflow-y: auto;
-    scrollbar-color: var(--admin-main-scrollbar-bg);
+    > .main {
+      flex: 1;
+      background-color: var(--admin-main-bg);
+      overflow-y: auto;
+      scrollbar-color: var(--admin-main-scrollbar-bg);
+    }
   }
 }

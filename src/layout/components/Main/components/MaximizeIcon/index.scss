@@ -1,8 +1,11 @@
 // 当前页面最大化 css
 .main-maximize {
-  .sidebar,
-  .header,
-  .tabs {
+  .system-box > .sidebar {
+    display: none !important;
+  }
+
+  .right-layout > .header,
+  .right-layout > .tabs {
     display: none !important;
   }
 }

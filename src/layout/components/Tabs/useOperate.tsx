@@ -10,6 +10,7 @@ import {
   VerticalLeftOutlined,
   VerticalRightOutlined,
 } from '@ant-design/icons'
+import { useTranslation } from 'react-i18next'
 import { RootState, useDispatch, useSelector } from '@/store'
 import { setSystemState } from '@/store/modules/system'
 import {
@@ -28,6 +29,8 @@ export const useOperate = (fullPath: string) => {
   const navigate = useNavigate()
   const { updateOutletShow } = useContext(RefreshContext)
   const tabList = useSelector((state: RootState) => state.tabs.tabList)
+
+  const { t } = useTranslation()
 
   const getTabIndex = (tab: TabItem) => {
     const mouseRightIndex = tabList.findIndex((item) => item.fullPath === tab.fullPath)
@@ -114,13 +117,13 @@ export const useOperate = (fullPath: string) => {
   const getDropdownItems = (tab: TabItem): MenuProps['items'] => [
     {
       key: 1,
-      label: <span>刷新</span>,
+      label: <span>{t('tabs.refresh')}</span>,
       icon: <ReloadOutlined />,
       onClick: (event) => refresh(event),
     },
     {
       key: 2,
-      label: <span>最大化</span>,
+      label: <span>{t('tabs.maximize')}</span>,
       icon: <FullscreenOutlined />,
 
       onClick: () => maximize(),
@@ -130,19 +133,19 @@ export const useOperate = (fullPath: string) => {
     },
     {
       key: 3,
-      label: <span>关闭当前</span>,
+      label: <span>{t('tabs.closeCurrent')}</span>,
       icon: <CloseOutlined />,
       onClick: (event) => closeCurrentTab(event, tab),
     },
     {
       key: 4,
-      label: <span>关闭左侧</span>,
+      label: <span>{t('tabs.closeLeft')}</span>,
       icon: <VerticalRightOutlined />,
       onClick: (event) => closeLeftTabs(event, tab),
     },
     {
       key: 5,
-      label: <span>关闭右侧</span>,
+      label: <span>{t('tabs.closeRight')}</span>,
       icon: <VerticalLeftOutlined />,
       onClick: (event) => closeRightTabs(event, tab),
     },
@@ -151,13 +154,13 @@ export const useOperate = (fullPath: string) => {
     },
     {
       key: 6,
-      label: <span>关闭其它</span>,
+      label: <span>{t('tabs.closeOther')}</span>,
       icon: <ColumnWidthOutlined />,
       onClick: (event) => closeOtherTabs(event, tab),
     },
     {
       key: 7,
-      label: <span>关闭所有</span>,
+      label: <span>{t('tabs.closeAll')}</span>,
       icon: <MinusOutlined />,
       onClick: (event) => closeAllTabs(event),
     },

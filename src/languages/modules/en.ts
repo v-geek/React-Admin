@@ -5,10 +5,10 @@ export default {
   tabs: {
     refresh: 'Refresh',
     maximize: 'Maximize',
-    closeCurrent: 'Close current',
+    closeCurrent: 'Close Current',
     closeLeft: 'Close Left',
     closeRight: 'Close Right',
-    closeOther: 'Close other',
+    closeOther: 'Close Other',
     closeAll: 'Close All',
   },
 }

@@ -16,7 +16,7 @@ const Layout = () => {
 
   return (
     <Watermark content={watermark ? 'React-Admin' : ''} className="flex-1">
-      <div className="flex">
+      <div className="system-box flex">
         <div className="sidebar" style={{ width: sideBarWidth + 'px' }}>
           <div className="logo">
             <img src={logo} alt="logo" />
