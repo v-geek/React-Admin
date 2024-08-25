@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import { Button, Table } from 'antd'
 
 const dataSource = [
   {
@@ -36,6 +36,9 @@ const columns = [
 const Home = () => {
   return (
     <div>
+      <Button type="primary" className="mb-4">
+        测试
+      </Button>
       <Table dataSource={dataSource} columns={columns} />;
     </div>
   )

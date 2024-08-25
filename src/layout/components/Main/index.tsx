@@ -4,6 +4,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useUpdateEffect } from 'ahooks'
 import { RefreshContext } from '@/context/Refresh'
 import { Meta } from '@/router/types'
+import MaximizeIcon from './components/MaximizeIcon'
 
 const Main = () => {
   const outlet = useOutlet()
@@ -22,20 +23,24 @@ const Main = () => {
   }, [matches])
 
   return (
-    <SwitchTransition>
-      <CSSTransition
-        classNames="fade-transform"
-        key={pathname}
-        nodeRef={nodeRef}
-        timeout={300}
-        exit={false}
-        unmountOnExit
-      >
-        <div ref={nodeRef} className={`main ${mainFull ? null : 'p-4'}`}>
-          {outletShow && outlet}
-        </div>
-      </CSSTransition>
-    </SwitchTransition>
+    <>
+      <MaximizeIcon />
+
+      <SwitchTransition>
+        <CSSTransition
+          classNames="fade-transform"
+          key={pathname}
+          nodeRef={nodeRef}
+          timeout={300}
+          exit={false}
+          unmountOnExit
+        >
+          <div ref={nodeRef} className={`main ${mainFull ? null : 'p-4'}`}>
+            {outletShow && outlet}
+          </div>
+        </CSSTransition>
+      </SwitchTransition>
+    </>
   )
 }
 

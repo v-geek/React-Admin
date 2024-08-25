@@ -1,0 +1,35 @@
+// 当前页面最大化 css
+.main-maximize {
+  .sidebar,
+  .header,
+  .tabs {
+    display: none !important;
+  }
+}
+
+.max-close-icon {
+  position: fixed;
+  top: -25px;
+  right: -25px;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  background-color: #909399;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: all 0.15s ease-in;
+
+  &:hover {
+    background-color: #73767a;
+  }
+
+  .iconify {
+    position: relative;
+    top: 68%;
+    left: 32%;
+    font-size: 16px;
+    color: #ffffff;
+    transform: translate(-50%, -50%);
+  }
+}

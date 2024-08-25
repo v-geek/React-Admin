@@ -21,7 +21,6 @@ import {
 import type { TabItem } from '@/store/types'
 import { RefreshContext } from '@/context/Refresh'
 import { message } from '@/hooks/useMessage'
-
 import { HOME_URL } from '@/config'
 
 export const useOperate = (fullPath: string) => {
