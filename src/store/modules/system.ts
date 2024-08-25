@@ -21,6 +21,7 @@ const systemState: SystemState = {
   weakMode: false,
   compactAlgorithm: false, // 紧凑算法
   isHappy: false,
+  watermark: false,
 }
 
 const systemSlice = createSlice({

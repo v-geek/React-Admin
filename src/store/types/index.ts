@@ -23,8 +23,7 @@ export interface SystemState {
     isCollapse: boolean
   }
   keepAliveNameList: string[]
-  // tabList: TabList
-  tabList: any
+  tabList: TabList
   mainMaximize: boolean
   isDark: boolean
   themeColor: string
@@ -35,6 +34,7 @@ export interface SystemState {
   weakMode: boolean
   compactAlgorithm: boolean
   isHappy: boolean
+  watermark: boolean
 }
 
 export interface PermissionState {

@@ -12,13 +12,23 @@ const Setting = () => {
 
   const dispatch = useDispatch()
 
-  const { themeColor, grayMode, weakMode, menuAccordion, isHappy } = useSelector(
+  const {
+    themeColor,
+    grayMode,
+    weakMode,
+    menuAccordion,
+    isHappy,
+    watermark,
+    compactAlgorithm,
+  } = useSelector(
     (state: RootState) => ({
       themeColor: state.system.themeColor,
       grayMode: state.system.grayMode,
       weakMode: state.system.weakMode,
       menuAccordion: state.system.menuAccordion,
       isHappy: state.system.isHappy,
+      watermark: state.system.watermark,
+      compactAlgorithm: state.system.compactAlgorithm,
     }),
     shallowEqual
   )
@@ -108,6 +118,24 @@ const Setting = () => {
             <Switch
               checked={isHappy}
               onChange={(value) => dispatch(setSystemState({ key: 'isHappy', value }))}
+            />
+          </div>
+
+          <div className="flex-between">
+            <span>水印</span>
+            <Switch
+              checked={watermark}
+              onChange={(value) => dispatch(setSystemState({ key: 'watermark', value }))}
+            />
+          </div>
+
+          <div className="flex-between">
+            <span>紧凑主题</span>
+            <Switch
+              checked={compactAlgorithm}
+              onChange={(value) =>
+                dispatch(setSystemState({ key: 'compactAlgorithm', value }))
+              }
             />
           </div>
         </div>
