@@ -13,20 +13,12 @@ import * as echarts from 'echarts'
 import type { ECElementEvent, EChartsType } from 'echarts'
 import { RootState, useSelector } from '@/store'
 import { throttle } from '@/utils'
-
-export interface ChartsProps {
-  options: Recordable
-  onClick?: (event: ECElementEvent) => any
-}
-
-export interface EChartsRef {
-  getChart(): EChartsType
-  getChartRef(): any
-}
+// import echarts from './config'
+import type { ChartsProps, EChartsRef } from './type'
 
 const ECharts = ({ options, onClick }: ChartsProps, ref: ForwardedRef<EChartsRef>) => {
+  const chartRef = useRef()
   const [chart, setChart] = useState<EChartsType>()
-  const chartRef = useRef<HTMLDivElement>(null)
 
   // 其他state的变化不会导致组件重新渲染
   const { mainMaximize, isCollapse } = useSelector(
@@ -50,28 +42,27 @@ const ECharts = ({ options, onClick }: ChartsProps, ref: ForwardedRef<EChartsRef
   }
 
   const resizeChart = throttle(() => {
-    // console.log('chart', chart)
     if (!chart) return
     chart.resize()
   }, 200)
 
   useEffect(() => {
-    const chartIns = echarts.init(chartRef.current)
-
+    let chartIns = null
+    chartIns = echarts.init(chartRef.current)
     chartIns.on('click', (event: ECElementEvent) => {
       onClick && onClick(event)
     })
-
     setChart(chartIns)
-
     chartIns.setOption(options)
+  }, [])
 
+  useEffect(() => {
     window.addEventListener('resize', resizeChart)
-
     return () => {
       window.removeEventListener('resize', resizeChart)
     }
-  }, [])
+    // 避免 resizeChart 中取不到最新的 chart 值
+  }, [chart])
 
   useUpdateEffect(updateChart, [options])
 

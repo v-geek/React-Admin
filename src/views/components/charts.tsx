@@ -48,16 +48,16 @@ const ChartsDemo = () => {
   const [options, setOptions] = useState(mockOptions)
   const echartsRef = useRef()
 
-  useEffect(() => {
-    setTimeout(() => {
-      setOptions((prevState) => {
-        const newState = { ...prevState }
-        newState.series[0].itemStyle.color = '#ff123a'
-        console.log('颜色更新了')
-        return newState
-      })
-    }, 2000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setOptions((prevState) => {
+  //       const newState = { ...prevState }
+  //       newState.series[0].itemStyle.color = '#ff123a'
+  //       console.log('颜色更新了')
+  //       return newState
+  //     })
+  //   }, 2000)
+  // }, [])
 
   return (
     <div className="bg-white dark:bg-dark py-10">
