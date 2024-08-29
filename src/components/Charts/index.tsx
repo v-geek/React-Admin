@@ -15,8 +15,12 @@ import { RootState, useSelector } from '@/store'
 import { throttle } from '@/utils'
 // import echarts from './config'
 import type { ChartsProps, EChartsRef } from './type'
+import { isObject } from '@/utils/is'
 
-const ECharts = ({ options, onClick }: ChartsProps, ref: ForwardedRef<EChartsRef>) => {
+const ECharts = (
+  { options, onClick, themeName = null, themeConfig }: ChartsProps,
+  ref: ForwardedRef<EChartsRef>
+) => {
   const chartRef = useRef()
   const [chart, setChart] = useState<EChartsType>()
 
@@ -48,11 +52,19 @@ const ECharts = ({ options, onClick }: ChartsProps, ref: ForwardedRef<EChartsRef
 
   useEffect(() => {
     let chartIns = null
-    chartIns = echarts.init(chartRef.current)
+
+    if (themeName && isObject(themeConfig)) {
+      echarts.registerTheme(themeName, themeConfig)
+    }
+
+    chartIns = echarts.init(chartRef.current, themeName)
+
     chartIns.on('click', (event: ECElementEvent) => {
       onClick && onClick(event)
     })
+
     setChart(chartIns)
+
     chartIns.setOption(options)
   }, [])
 

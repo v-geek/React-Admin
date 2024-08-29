@@ -47,7 +47,7 @@
         {
           "path": "/components/charts",
           "name": "Charts",
-          "component": "/components/charts",
+          "component": "/components/charts/index",
           "meta": {
             "title": "图表"
           }

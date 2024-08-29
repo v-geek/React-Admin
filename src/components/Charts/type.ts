@@ -32,8 +32,10 @@ export type ChartOption = ComposeOption<
 >
 
 export interface ChartsProps {
-  options: ChartOption
+  options: ChartOption | null | undefined
   onClick?: (event: ECElementEvent) => any
+  themeName?: string
+  themeConfig?: Recordable
 }
 
 export interface EChartsRef {

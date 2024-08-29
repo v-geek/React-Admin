@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import Charts from '@/components/Charts'
+import { ChartOption } from '@/components/Charts/type'
+import themeConfig from './wonderland.json'
 
-const mockOptions = {
+const mockOptions: ChartOption = {
   tooltip: {
     trigger: 'axis',
     axisPointer: {
@@ -31,17 +33,19 @@ const mockOptions = {
       },
     },
   },
-  series: [
-    {
-      name: '数量',
-      data: [320, 33, 419, 156, 256, 80, 400],
+  series: Array(7)
+    .fill('')
+    .map((item, index) => ({
+      name: `第${index + 1}组`,
+      data: Array(7)
+        .fill('')
+        .map(() => Math.ceil(Math.random() * 400)),
       type: 'bar',
-      itemStyle: {
-        color: '#2097F3',
-      },
-      barWidth: 30,
-    },
-  ],
+      // itemStyle: {
+      //   color: '#2097F3',
+      // },
+      // barWidth: 30,
+    })),
 }
 
 const ChartsDemo = () => {
@@ -52,7 +56,7 @@ const ChartsDemo = () => {
   //   setTimeout(() => {
   //     setOptions((prevState) => {
   //       const newState = { ...prevState }
-  //       newState.series[0].itemStyle.color = '#ff123a'
+  //       newState.series[0].itemStyle = { color: '#ff123a' }
   //       console.log('颜色更新了')
   //       return newState
   //     })
@@ -62,7 +66,12 @@ const ChartsDemo = () => {
   return (
     <div className="bg-white dark:bg-dark py-10">
       <div className="w-full h-[500px]">
-        <Charts options={options} ref={echartsRef} />
+        <Charts
+          options={options}
+          ref={echartsRef}
+          themeName="wonderland"
+          themeConfig={themeConfig}
+        />
       </div>
     </div>
   )
