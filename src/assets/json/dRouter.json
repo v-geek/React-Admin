@@ -131,7 +131,8 @@
           "name": "EChartsMap",
           "component": "/echarts/map/index",
           "meta": {
-            "title": "地图"
+            "title": "地图",
+            "mainFull": true
           }
         }
       ]

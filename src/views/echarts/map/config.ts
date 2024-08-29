@@ -76,12 +76,6 @@ export const options: ChartOption = {
   tooltip: {
     trigger: 'item',
   },
-  grid: {
-    left: '0px',
-    right: '80px',
-    top: '10px',
-    bottom: '10px',
-  },
   geo: {
     map: 'china',
     // 当前视角的缩放比例
