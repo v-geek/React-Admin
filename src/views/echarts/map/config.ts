@@ -79,7 +79,7 @@ export const options: ChartOption = {
   geo: {
     map: 'china',
     // 当前视角的缩放比例
-    zoom: 1.5,
+    zoom: 1.3,
     center: [102.848234, 32.82333],
     // 开启缩放和平移
     roam: true,
@@ -135,18 +135,18 @@ export const options: ChartOption = {
         },
       },
     },
-    regions: [
-      {
-        name: '南海诸岛',
-        itemStyle: {
-          // 隐藏南海诸岛
-          opacity: 0,
-        },
-        label: {
-          show: false, // 隐藏文字
-        },
-      },
-    ],
+    // regions: [
+    //   {
+    //     name: '南海诸岛',
+    //     itemStyle: {
+    //       // 隐藏南海诸岛
+    //       opacity: 0,
+    //     },
+    //     label: {
+    //       show: false, // 隐藏文字
+    //     },
+    //   },
+    // ],
   },
   series: [
     {
