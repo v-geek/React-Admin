@@ -1,6 +1,10 @@
 import ECharts from '@/components/ECharts'
 import { GeoJson } from '@/components/ECharts/type'
-import mapJson from './china.json'
+
+// 数据来源: https://datav.aliyun.com/portal/school/atlas/area_selector
+import mapJson from './json/china-province.json'
+// import mapJson from './json/sichuan-city.json'
+
 import { options } from './config'
 import './index.scss'
 

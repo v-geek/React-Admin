@@ -135,6 +135,18 @@ export const options: ChartOption = {
         },
       },
     },
+    regions: [
+      {
+        name: '南海诸岛',
+        itemStyle: {
+          // 隐藏南海诸岛
+          opacity: 0,
+        },
+        label: {
+          show: false, // 隐藏文字
+        },
+      },
+    ],
   },
   series: [
     {
