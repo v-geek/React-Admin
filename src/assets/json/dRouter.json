@@ -45,14 +45,6 @@
           }
         },
         {
-          "path": "/components/charts",
-          "name": "Charts",
-          "component": "/components/charts/index",
-          "meta": {
-            "title": "图表"
-          }
-        },
-        {
           "path": "/components/gkDrawer",
           "name": "gkDrawer",
           "component": "/components/gkDrawer",
@@ -114,6 +106,32 @@
           "component": "/components/gkUpload",
           "meta": {
             "title": "图片上传(自定义)"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/echarts",
+      "redirect": "/echarts/theme",
+      "meta": {
+        "title": "ECharts图表",
+        "icon": "ant-design:area-chart-outlined"
+      },
+      "children": [
+        {
+          "path": "/echarts/theme",
+          "name": "EChartsTheme",
+          "component": "/echarts/theme/index",
+          "meta": {
+            "title": "自定义主题"
+          }
+        },
+        {
+          "path": "/echarts/map",
+          "name": "EChartsMap",
+          "component": "/echarts/map/index",
+          "meta": {
+            "title": "地图"
           }
         }
       ]

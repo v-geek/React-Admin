@@ -1,4 +1,5 @@
 import type { MutableRefObject } from 'react'
+import * as echarts from 'echarts'
 import type { ComposeOption } from 'echarts/core'
 import type {
   BarSeriesOption,
@@ -31,11 +32,16 @@ export type ChartOption = ComposeOption<
   | DatasetComponentOption
 >
 
+export type GeoJson = Parameters<typeof echarts.registerMap>[1]
+
 export interface ChartsProps {
-  options: ChartOption | null | undefined
+  // options: ChartOption | null | undefined
+  options: any
   onClick?: (event: ECElementEvent) => any
   themeName?: string
   themeConfig?: Recordable
+  mapName?: string
+  mapJson?: GeoJson
 }
 
 export interface EChartsRef {

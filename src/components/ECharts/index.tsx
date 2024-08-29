@@ -17,8 +17,8 @@ import { throttle } from '@/utils'
 import type { ChartsProps, EChartsRef } from './type'
 import { isObject } from '@/utils/is'
 
-const ECharts = (
-  { options, onClick, themeName = null, themeConfig }: ChartsProps,
+const Charts = (
+  { options, onClick, themeName = null, themeConfig, mapName = '', mapJson }: ChartsProps,
   ref: ForwardedRef<EChartsRef>
 ) => {
   const chartRef = useRef()
@@ -57,6 +57,10 @@ const ECharts = (
       echarts.registerTheme(themeName, themeConfig)
     }
 
+    if (mapName && mapJson) {
+      echarts.registerMap(mapName, mapJson)
+    }
+
     chartIns = echarts.init(chartRef.current, themeName)
 
     chartIns.on('click', (event: ECElementEvent) => {
@@ -87,6 +91,6 @@ const ECharts = (
   return <div className="chart w-full h-full" ref={chartRef} />
 }
 
-const Charts = memo(forwardRef(ECharts))
+const ECharts = memo(forwardRef(Charts))
 
-export default Charts
+export default ECharts
